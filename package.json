@@ -1,0 +1,12 @@
+{
+  "name": "foxname-dummy-ws",
+  "version": "1.0.0",
+  "description": "Lightweight dummy WebSocket server for Foxname to absorb zombie connections",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "ws": "^8.16.0"
+  }
+}
