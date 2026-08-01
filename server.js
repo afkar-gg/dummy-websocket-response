@@ -26,6 +26,15 @@ wss.on('connection', (ws, req) => {
         return;
     }
 
+    // Capture IP (supporting Cloudflare/Proxies) and User-Agent
+    const ip = req.headers['cf-connecting-ip'] || 
+               (req.headers['x-forwarded-for'] ? req.headers['x-forwarded-for'].split(',')[0].trim() : null) || 
+               req.socket.remoteAddress || 
+               'Unknown IP';
+    const ua = req.headers['user-agent'] || 'Unknown User-Agent';
+
+    console.log(`[${new Date().toISOString()}] [+] Connection | IP: ${ip} | UA: ${ua}`);
+
     ws.on('message', (message) => {
         try {
             const data = JSON.parse(message);
