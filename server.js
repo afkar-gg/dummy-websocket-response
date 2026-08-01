@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 8080;
 // Create a basic HTTP server for health checks (Cloudflare might ping this)
 const server = http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('Foxname Dummy WS Server is running.');
+    res.end('Dummy WS Server is running.');
 });
 
 // Initialize WebSocket server
@@ -50,6 +50,6 @@ wss.on('connection', (ws, req) => {
 });
 
 server.listen(PORT, () => {
-    console.log(`[Foxname Dummy Server] Listening on port ${PORT}`);
+    console.log(`[Dummy Server] Listening on port ${PORT}`);
     console.log(`Optimized for extreme concurrency (perMessageDeflate: false)`);
 });
